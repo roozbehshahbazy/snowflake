@@ -62,7 +62,13 @@ jobs:
           echo "SNOWFLAKE_TOKEN is set"
 
       - name: Terraform Plan
+        id: plan
         run: terraform plan
+        working-directory: "snowflake/terraform"
+
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -auto-approve
         working-directory: "snowflake/terraform"
 
 
