@@ -1,3 +1,3 @@
-resource "snowflake_database" "cicd" {
-  name = "cicd"
-}
+# resource "snowflake_database" "cicd" {
+#   name = "cicd"
+# }
