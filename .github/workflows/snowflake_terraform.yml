@@ -52,10 +52,6 @@ jobs:
 
           echo "SNOWFLAKE_TOKEN=$token" >> "$GITHUB_ENV"
 
-            - name: Terraform Plan
-              run: terraform plan
-              working-directory: "snowflake/terraform"
-
       - name: Terraform Plan
         run: terraform plan
         working-directory: "snowflake/terraform"
