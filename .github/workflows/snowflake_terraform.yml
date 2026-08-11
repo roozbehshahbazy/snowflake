@@ -51,6 +51,15 @@ jobs:
           fi
 
           echo "SNOWFLAKE_TOKEN=$token" >> "$GITHUB_ENV"
+      - name: Check Snowflake OIDC token
+        shell: bash
+        run: |
+          if [ -z "$SNOWFLAKE_TOKEN" ]; then
+            echo "SNOWFLAKE_TOKEN is NOT set"
+            exit 1
+          fi
+
+          echo "SNOWFLAKE_TOKEN is set"
 
       - name: Terraform Plan
         run: terraform plan
