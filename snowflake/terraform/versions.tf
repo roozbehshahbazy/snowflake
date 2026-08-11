@@ -1,11 +1,20 @@
 terraform {
-  backend "azurerm" {
-    subscription_id      = "dadbc2ea-904e-4b51-9974-8581e34e539d"
-    resource_group_name  = "terraform"
-    storage_account_name = "terraformforsnowflake"
-    container_name       = "snowflake"
-    key                  = "snowflake.terraform.tfstate"
+  required_version = "1.15.8"
 
-    use_azuread_auth = true
+  required_providers {
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = "3.901" # https://registry.terraform.io/providers/hashicorp/azuread/latest
+    }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "5.0.1" # https://registry.terraform.io/providers/hashicorp/azurerm/latest
+    }
+    github = {
+      source  = "integrations/github"
+      version = "6.13.0" # https://registry.terraform.io/providers/integrations/github/latest
+    }
+
   }
+
 }
