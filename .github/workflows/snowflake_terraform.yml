@@ -35,20 +35,6 @@ jobs:
         run: terraform init
         working-directory: "snowflake/terraform"
 
-      - name: Get Azure token for Snowflake
-        shell: bash
-        run: |
-          token=$(az account get-access-token \
-            --resource "api://fd3f753b-eed3-462c-b6a7-a4b5bb650aad" \
-            --query accessToken \
-            --output tsv)
-
-          if [ -z "$token" ]; then
-            echo "Failed to obtain Azure access token for Snowflake"
-            exit 1
-          fi
-
-          echo "SNOWFLAKE_TOKEN=$token" >> "$GITHUB_ENV"
 
       - name: Terraform Plan
         id: plan
