@@ -3,6 +3,10 @@ name: "Snowflake Terraform Demo Workflow"
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   snowflake-terraform-demo:
     name: "Snowflake Terraform Demo Job"
