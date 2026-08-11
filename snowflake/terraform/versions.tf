@@ -5,5 +5,7 @@ terraform {
     storage_account_name = "terraformforsnowflake"
     container_name       = "snowflake"
     key                  = "snowflake.terraform.tfstate"
+
+    use_azuread_auth = true
   }
 }
