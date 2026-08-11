@@ -1,4 +1,4 @@
-terraform {  
+terraform {
   backend "azurerm" {
     subscription_id      = "dadbc2ea-904e-4b51-9974-8581e34e539d"
     resource_group_name  = "terraform"
