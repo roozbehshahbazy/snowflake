@@ -35,31 +35,20 @@ jobs:
         run: terraform init
         working-directory: "snowflake/terraform"
 
-      - name: Get GitHub OIDC token
-        id: snowflake_oidc
+      - name: Get Azure token for Snowflake
         shell: bash
         run: |
-          response=$(curl -sSf \
-            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=snowflakecomputing.com")
+          token=$(az account get-access-token \
+            --resource "api://fd3f753b-eed3-462c-b6a7-a4b5bb650aad" \
+            --query accessToken \
+            --output tsv)
 
-          token=$(echo "$response" | jq -r '.value')
-
-          if [ -z "$token" ] || [ "$token" = "null" ]; then
-            echo "Failed to obtain GitHub OIDC token"
+          if [ -z "$token" ]; then
+            echo "Failed to obtain Azure access token for Snowflake"
             exit 1
           fi
 
           echo "SNOWFLAKE_TOKEN=$token" >> "$GITHUB_ENV"
-      - name: Check Snowflake OIDC token
-        shell: bash
-        run: |
-          if [ -z "$SNOWFLAKE_TOKEN" ]; then
-            echo "SNOWFLAKE_TOKEN is NOT set"
-            exit 1
-          fi
-
-          echo "SNOWFLAKE_TOKEN is set"
 
       - name: Terraform Plan
         id: plan
