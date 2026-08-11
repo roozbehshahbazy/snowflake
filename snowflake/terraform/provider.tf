@@ -5,5 +5,5 @@ provider "snowflake" {
   role              = "TERRAFORM_ROLE"
 
   authenticator              = "WORKLOAD_IDENTITY"
-  workload_identity_provider = "AZURE"
+  workload_identity_provider = "azure"
 }
