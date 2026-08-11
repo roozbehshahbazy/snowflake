@@ -15,9 +15,9 @@ terraform {
       version = "6.13.0" # https://registry.terraform.io/providers/integrations/github/latest
     }
 
-    snowflake = {
-      source = "snowflakedb/snowflake"
-    }
+    # snowflake = {
+    #   source = "snowflakedb/snowflake"
+    # }
 
   }
 
