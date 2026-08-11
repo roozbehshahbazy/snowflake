@@ -8,7 +8,7 @@ terraform {
     }
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "5.0.1" # https://registry.terraform.io/providers/hashicorp/azurerm/latest
+      version = "4.81.0" # https://registry.terraform.io/providers/hashicorp/azurerm/latest
     }
     github = {
       source  = "integrations/github"
