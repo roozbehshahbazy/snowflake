@@ -14,7 +14,7 @@ jobs:
 
     # This must match the GitHub environment
     # used in your Snowflake WORKLOAD_IDENTITY SUBJECT.
-    environment: PROD
+    environment: dev
 
     steps:
       # --------------------------------------------------
