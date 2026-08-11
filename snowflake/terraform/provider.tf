@@ -1,6 +1,7 @@
 
 provider "snowflake" {
-  account = "AOJAKXH-YN03913"
+  organization_name = "AOJAKXH"
+  account_name = "YN03913"
   role    = "TERRAFORM_ROLE"
 
   authenticator              = "WORKLOAD_IDENTITY"
