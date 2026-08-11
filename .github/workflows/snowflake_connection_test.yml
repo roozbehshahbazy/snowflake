@@ -1,0 +1,51 @@
+name: Test Snowflake OIDC Connection
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  test-snowflake-connection:
+    name: Test Snowflake Connection
+    runs-on: ubuntu-latest
+
+    # This must match the GitHub environment
+    # used in your Snowflake WORKLOAD_IDENTITY SUBJECT.
+    environment: PROD
+
+    steps:
+      # --------------------------------------------------
+      # 1. Checkout repository
+      # --------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # --------------------------------------------------
+      # 2. Install Snowflake CLI and configure OIDC
+      # --------------------------------------------------
+      - name: Setup Snowflake CLI
+        uses: snowflakedb/snowflake-actions@v3
+        with:
+          cli-version: "3.16"
+          use-oidc: true
+
+      # --------------------------------------------------
+      # 3. Display Snowflake CLI version
+      # --------------------------------------------------
+      - name: Check Snowflake CLI version
+        run: |
+          snow --version
+
+      # --------------------------------------------------
+      # 4. Test Snowflake connection
+      # --------------------------------------------------
+      - name: Test Snowflake connection
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+        run: |
+          snow connection test -x
