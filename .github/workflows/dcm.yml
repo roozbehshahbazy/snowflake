@@ -15,7 +15,7 @@ permissions:
 jobs:
   plan:
     runs-on: ubuntu-latest
-    environment: DCM_STAGE
+    environment: DCM_DEV
     permissions:
       id-token: write
       contents: read
@@ -23,6 +23,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: Snowflake-Labs/snowflake_dcm_projects/actions/dcm-plan@v1
         with:
-          target: DCM_STAGE
+          target: DCM_DEV
           project-path: snowflake/my_dcm_project/
           snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
