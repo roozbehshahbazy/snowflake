@@ -31,3 +31,19 @@ resource "snowflake_grant_ownership" "dcm_database" {
     object_name = snowflake_database.cicd.name
   }
 }
+
+# create Bronze
+resource "snowflake_schema" "cicd_bronze_schema" {
+  database = snowflake_database.cicd.name
+  name     = "bronze"
+}
+
+# Assign Schema Ownership to DCM
+resource "snowflake_grant_ownership" "cicd_bronze_schema_permission" {
+  account_role_name = snowflake_account_role.dcm_role.name
+
+  on {
+    object_type = "SCHEMA"
+    object_name = snowflake_schema.cicd_bronze_schema.fully_qualified_name
+  }
+}
