@@ -24,6 +24,5 @@ jobs:
       - uses: Snowflake-Labs/snowflake_dcm_projects/actions/dcm-plan@v1
         with:
           target: DCM_STAGE
-          project-path: Quickstarts/DCM_Project_Quickstart_1/
+          project-path: snowflake/my_dcm_project/
           snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
-
