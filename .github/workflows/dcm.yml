@@ -15,7 +15,7 @@ permissions:
 jobs:
   plan:
     runs-on: ubuntu-latest
-    environment: DEV
+    environment: DCM_DEV
     permissions:
       id-token: write
       contents: read
