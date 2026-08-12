@@ -23,10 +23,6 @@ resource "snowflake_user" "dcm_user" {
   disabled = false
 }
 
-variable "dcm_user_password" {
-  type      = string
-  sensitive = true
-}
 
 # ---------------------------------------------------------
 # Grant DCM_ROLE to DCM_USER
