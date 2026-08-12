@@ -15,7 +15,7 @@ resource "snowflake_account_role" "dcm_role" {
 resource "snowflake_user" "dcm_user" {
   name = "DCM_USER"
 
-  default_role = snowflake_role.dcm_role.name
+  default_role = snowflake_account_role.dcm_role.name
 
   # Optional - only required if you want password authentication
   password = var.dcm_user_password
@@ -29,7 +29,7 @@ resource "snowflake_user" "dcm_user" {
 # ---------------------------------------------------------
 
 resource "snowflake_grant_account_role" "dcm_role_to_user" {
-  role_name = snowflake_role.dcm_role.name
+  role_name = snowflake_account_role.dcm_role.name
   user_name = snowflake_user.dcm_user.name
 }
 
@@ -43,7 +43,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_database" {
     "CREATE SCHEMA"
   ]
 
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 
   on_account_object {
     object_type = "DATABASE"
@@ -85,7 +85,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_schemas" {
     }
   }
 
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 }
 
 # ---------------------------------------------------------
@@ -111,7 +111,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_all_tables" {
       in_database        = snowflake_database.cicd.name
     }
   }
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 }
 
 resource "snowflake_grant_privileges_to_account_role" "dcm_all_views" {
@@ -126,7 +126,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_all_views" {
     }
   }
 
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 }
 
 resource "snowflake_grant_privileges_to_account_role" "dcm_all_stages" {
@@ -142,7 +142,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_all_stages" {
     }
   }
 
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 }
 
 resource "snowflake_grant_privileges_to_account_role" "dcm_all_sequences" {
@@ -156,7 +156,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_all_sequences" {
     }
   }
 
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 }
 
 resource "snowflake_grant_privileges_to_account_role" "dcm_all_file_formats" {
@@ -170,7 +170,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_all_file_formats" {
     }
   }
 
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 }
 
 # ---------------------------------------------------------
@@ -195,7 +195,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_future_tables" {
       in_database        = snowflake_database.cicd.name
     }
   }
-  account_role_name = snowflake_role.dcm_role.name
+  account_role_name = snowflake_account_role.dcm_role.name
 }
 
 # resource "snowflake_grant_privileges_to_account_role" "dcm_future_views" {
@@ -209,7 +209,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_future_tables" {
 #     in_database        = "CICD"
 #   }
 
-#   role_name = snowflake_role.dcm_role.name
+#   role_name = snowflake_account_role.dcm_role.name
 # }
 
 # resource "snowflake_grant_privileges_to_account_role" "dcm_future_stages" {
@@ -224,5 +224,5 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_future_tables" {
 #     in_database        = "CICD"
 #   }
 
-#   role_name = snowflake_role.dcm_role.name
+#   role_name = snowflake_account_role.dcm_role.name
 # }
