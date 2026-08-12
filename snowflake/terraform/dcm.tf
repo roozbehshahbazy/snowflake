@@ -23,13 +23,10 @@ resource "snowflake_user" "dcm_user" {
   disabled = false
 }
 
-
-resource "snowflake_grant_privileges_to_account_role" "dcm_database" {
+resource "snowflake_grant_ownership" "dcm_database" {
   account_role_name = snowflake_account_role.dcm_role.name
 
-  privileges = ["OWNERSHIP"]
-
-  on_account_object {
+  on {
     object_type = "DATABASE"
     object_name = snowflake_database.cicd.name
   }
