@@ -26,4 +26,3 @@ jobs:
           target: dev
           project-path: snowflake/my_dcm_project/
           snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
-          snowflake-database: CICD

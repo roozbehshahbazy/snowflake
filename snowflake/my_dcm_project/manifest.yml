@@ -9,4 +9,5 @@ targets:
     account_identifier: AOJAKXH-YN03913
     project_name: DEV_SANDBOX1
     project_owner: GITHUB_ACTIONS_DEPLOYER
+    database: CICD
 
