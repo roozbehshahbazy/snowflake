@@ -1,0 +1,29 @@
+name: Snowflake DCM
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+# The job MUST use a GitHub Environment whose name matches the target
+# (so that OIDC tokens are scoped correctly).
+
+# Example usage:
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    environment: DCM_STAGE
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Snowflake-Labs/snowflake_dcm_projects/actions/dcm-plan@v1
+        with:
+          target: DCM_STAGE
+          project-path: Quickstarts/DCM_Project_Quickstart_1/
+          snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
+
