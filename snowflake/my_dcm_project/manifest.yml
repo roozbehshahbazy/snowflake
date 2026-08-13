@@ -7,7 +7,7 @@ default_target: dev
 targets:
   dev:
     account_identifier: AOJAKXH-YN03913
-    project_name: DCM_DEMO.PROJECTS.DCM_PROJECT_DEV
+    project_name: CICD.PROJECTS.DCM_PROJECT_DEV
     project_owner: GITHUB_ACTIONS_DEPLOYER
 
 
