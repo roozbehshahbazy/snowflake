@@ -8,7 +8,7 @@ targets:
   dev:
     account_identifier: AOJAKXH-YN03913
     project_name: DCM_DEMO.PROJECTS.DCM_PROJECT_DEV
-    project_owner: DCM_DEVELOPER
+    project_owner: GITHUB_ACTIONS_DEPLOYER
     templating_config: DEV
 
 
