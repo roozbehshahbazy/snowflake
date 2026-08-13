@@ -9,5 +9,22 @@ targets:
     account_identifier: AOJAKXH-YN03913
     project_name: DCM_DEMO.PROJECTS.DCM_PROJECT_DEV
     project_owner: DCM_DEVELOPER
+    templating_config: DEV
+
+
+templating:
+  defaults:
+    user_name: ${{ secrets.SNOWFLAKE_USER }}
+    wh_size: "X-SMALL"
+    
+  configurations:
+    DEV:
+      env_suffix: "_DEV"
+      user_name: "ROOZBEH1984"        #replace with your username 
+      project_owner_role: "DCM_DEVELOPER" 
+      teams: 
+        - name: "DEV_TEAM_1" 
+          data_retention_days: 1
+          needs_sandbox_schema: true
 
 
