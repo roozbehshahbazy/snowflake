@@ -7,6 +7,7 @@ with
 
 grant USAGE on warehouse DCM_DEMO_1_WH to role GITHUB_ACTIONS_DEPLOYER;
 
+USE WAREHOUSE DCM_DEMO_1_WH;
 
 define SCHEMA CICD.BRONZE;
 
