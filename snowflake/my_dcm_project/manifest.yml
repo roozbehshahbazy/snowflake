@@ -14,7 +14,7 @@ targets:
 
 templating:
   defaults:
-    user_name: ${{ secrets.SNOWFLAKE_USER }}
+    user_name: "GITHUB_ACTIONS_DEPLOYER"
     wh_size: "X-SMALL"
     
   configurations:
