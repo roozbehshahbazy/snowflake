@@ -25,5 +25,4 @@ jobs:
           project-path: snowflake/my_dcm_project/
           snowflake-user: ${{ secrets.SNOWFLAKE_USER }}
           allow-drops: "false"
-          warehouse: "DCM_DEMO_1_WH"
 
