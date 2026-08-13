@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: snowflakedb/snowflake-actions/dcm/deploy@v3
         with:
-          target: DCM_STAGE
+          target: dev
           project-path: snowflake/my_dcm_project/
           snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
           allow-drops: "false"
