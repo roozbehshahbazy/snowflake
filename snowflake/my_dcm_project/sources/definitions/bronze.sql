@@ -1,4 +1,1 @@
-DEFINE TABLE TEST_TABLE AS
-SELECT
-    1 AS ID,
-    'Hello DCM' AS MESSAGE;
+define schema CICD.BRONZE;
