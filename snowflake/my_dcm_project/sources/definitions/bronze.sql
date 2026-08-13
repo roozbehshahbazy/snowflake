@@ -1,1 +1,1 @@
-define schema CICD.BRONZE;
+define SCHEMA CICD.BRONZE;
