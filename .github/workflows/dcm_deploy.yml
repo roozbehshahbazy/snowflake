@@ -1,0 +1,22 @@
+name: Snowflake DCM Deploy
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: snowflakedb/snowflake-actions/dcm/deploy@v3
+        with:
+          target: DCM_STAGE
+          project-path: snowflake/my_dcm_project/
+          snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
+          allow-drops: "false"
+          test-expectations: "true"

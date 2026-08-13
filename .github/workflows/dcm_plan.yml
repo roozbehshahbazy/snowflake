@@ -1,4 +1,4 @@
-name: Snowflake DCM
+name: Snowflake DCM Plan
 
 on:
   workflow_dispatch:
