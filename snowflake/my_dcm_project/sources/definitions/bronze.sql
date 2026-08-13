@@ -1,4 +1,4 @@
-DEFINE TABLE bronze.test_table AS
+DEFINE TABLE TEST_TABLE AS
 SELECT
-    1 AS id,
-    'Hello DCM' AS message;
+    1 AS ID,
+    'Hello DCM' AS MESSAGE;
