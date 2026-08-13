@@ -7,7 +7,8 @@ default_target: dev
 targets:
   dev:
     account_identifier: AOJAKXH-YN03913
-    project_name: CICD.PUBLIC.DEV_SANDBOX1
-    project_owner: GITHUB_ACTIONS_DEPLOYER
+    project_name: DCM_DEMO.PROJECTS.DCM_PROJECT_DEV
+    project_owner: ROOZBEH1984
+    templating_config: DEV
 
 

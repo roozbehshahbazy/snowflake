@@ -14,17 +14,10 @@ jobs:
     steps:
 
       - uses: actions/checkout@v4
-      - uses: snowflakedb/snowflake-actions/dcm/plan@v3
-        with:
-          target: dev
-          project-path: snowflake/my_dcm_project/
-          snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
-          
-      - uses: actions/checkout@v4
       - uses: snowflakedb/snowflake-actions/dcm/deploy@v3
         with:
           target: dev
           project-path: snowflake/my_dcm_project/
-          snowflake-user: GITHUB_ACTIONS_SNOWFLAKE
+          snowflake-user: ${{ secrets.SNOWFLAKE_USER }}
           allow-drops: "false"
 
