@@ -36,7 +36,7 @@ jobs:
 
       - name: Check Snowflake CLI
         run: |
-          snowflake --version
+          snow --version
 
 
       - name: Setup Terraform
