@@ -27,8 +27,21 @@ jobs:
         uses: snowflakedb/snowflake-actions@v3 
         with: 
           use-oidc: true
-      
-      
+
+      - name: Check Snowflake Terraform Identity
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_ROLE: GITHUB_ACTIONS_DEPLOYER
+          SNOWFLAKE_AUTHENTICATOR: SNOWFLAKE_JWT
+        run: |
+          snowsql \
+            -a "$SNOWFLAKE_ACCOUNT" \
+            -u "$SNOWFLAKE_USER" \
+            -r "$SNOWFLAKE_ROLE" \
+            -q "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_ACCOUNT();"
+            
+    
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
 
