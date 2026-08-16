@@ -28,25 +28,17 @@ jobs:
         with: 
           use-oidc: true
 
-      - name: Verify Snowflake Connection
+
+      - name: Install Snowflake CLI
         run: |
-          echo "Testing Snowflake identity..."
-          snowflake sql \s
-            --query "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_ACCOUNT();"
+          python -m pip install --upgrade pip
+          pip install snowflake-cli
 
-          echo "Checking DCM_DEVELOPER..."
-          snowflake sql \
-            --query "SHOW ROLES LIKE 'DCM_DEVELOPER';"
+      - name: Check Snowflake CLI
+        run: |
+          snowflake --version
 
-          echo "Checking ROOZBEH1984..."
-          snowflake sql \
-            --query "SHOW USERS LIKE 'ROOZBEH1984';"
 
-          echo "Checking GITHUB_ACTIONS_DEPLOYER grants..."
-          snowflake sql \
-            --query "SHOW GRANTS TO ROLE GITHUB_ACTIONS_DEPLOYER;"
-            
-    
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
 
