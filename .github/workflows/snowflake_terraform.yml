@@ -28,18 +28,23 @@ jobs:
         with: 
           use-oidc: true
 
-      - name: Check Snowflake Terraform Identity
-        env:
-          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
-          SNOWFLAKE_ROLE: GITHUB_ACTIONS_DEPLOYER
-          SNOWFLAKE_AUTHENTICATOR: SNOWFLAKE_JWT
+      - name: Verify Snowflake Connection
         run: |
-          snowsql \
-            -a "$SNOWFLAKE_ACCOUNT" \
-            -u "$SNOWFLAKE_USER" \
-            -r "$SNOWFLAKE_ROLE" \
-            -q "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_ACCOUNT();"
+          echo "Testing Snowflake identity..."
+          snowflake sql \s
+            --query "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_ACCOUNT();"
+
+          echo "Checking DCM_DEVELOPER..."
+          snowflake sql \
+            --query "SHOW ROLES LIKE 'DCM_DEVELOPER';"
+
+          echo "Checking ROOZBEH1984..."
+          snowflake sql \
+            --query "SHOW USERS LIKE 'ROOZBEH1984';"
+
+          echo "Checking GITHUB_ACTIONS_DEPLOYER grants..."
+          snowflake sql \
+            --query "SHOW GRANTS TO ROLE GITHUB_ACTIONS_DEPLOYER;"
             
     
       - name: Setup Terraform
