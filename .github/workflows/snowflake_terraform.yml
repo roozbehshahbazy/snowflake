@@ -34,10 +34,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install snowflake-cli
 
-      - name: Check Snowflake CLI
+      - name: Test Snowflake Identity
         run: |
-          snow --version
-
+          snow sql \
+              --query "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_ACCOUNT();"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
