@@ -28,17 +28,6 @@ jobs:
         with: 
           use-oidc: true
 
-
-      - name: Install Snowflake CLI
-        run: |
-          python -m pip install --upgrade pip
-          pip install snowflake-cli
-
-      - name: Test Snowflake Identity
-        run: |
-          snow sql \
-              --query "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_ACCOUNT();"
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
 
