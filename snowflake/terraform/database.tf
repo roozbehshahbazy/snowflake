@@ -3,5 +3,5 @@ resource "snowflake_database" "cicd" {
 }
 
 resource "snowflake_database" "platform" {
-  name = "platform"
+  name = "PLATFORM"
 }
