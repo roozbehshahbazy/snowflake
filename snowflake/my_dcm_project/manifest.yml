@@ -8,6 +8,6 @@ targets:
   dev:
     account_identifier: AOJAKXH-YN03913
     project_name: PLATFORM.PROJECT.DCM_DEMO
-    project_owner: DCM_DEVELOPER
+    project_owner: GITHUB_ACTIONS_DEPLOYER
 
 
