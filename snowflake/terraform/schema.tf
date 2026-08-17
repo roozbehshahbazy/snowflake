@@ -1,4 +1,4 @@
-resource "snowflake_schema" "platform_project" {
+resource "snowflake_schema" "project" {
   database = "PLATFORM"
   name     = "PROJECT"
 }
