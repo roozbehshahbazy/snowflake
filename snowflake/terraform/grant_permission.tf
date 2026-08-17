@@ -10,7 +10,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_developer_project" {
 
 
 resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_table" {
-  privileges        = ["MODIFY", "CREATE TABLE", "SELECT"]
+  privileges        = ["ALL"]
   account_role_name = snowflake_account_role.dcm_developer.name
   on_schema_object {
     future {
@@ -22,7 +22,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_table" {
 
 
 resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_view" {
-  privileges        = ["MODIFY", "CREATE TABLE", "SELECT"]
+  privileges        = ["ALL"]
   account_role_name = snowflake_account_role.dcm_developer.name
   on_schema_object {
     future {
