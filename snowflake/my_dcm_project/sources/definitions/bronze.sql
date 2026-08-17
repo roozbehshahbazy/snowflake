@@ -1,9 +1,9 @@
-define database RETAIL;
+define database {{env_prefix}}RETAIL;
 
-define schema RETAIL.BRONZE;
+define schema {{env_prefix}}RETAIL.BRONZE;
 
 
-define VIEW RETAIL.BRONZE.ENVIRONMENT_V
+define VIEW {{env_prefix}}RETAIL.BRONZE.ENVIRONMENT_V
 AS 
 SELECT
     'DEV' AS ENVIRONMENT,
