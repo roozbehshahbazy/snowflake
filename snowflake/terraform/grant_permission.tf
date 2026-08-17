@@ -31,25 +31,35 @@ resource "snowflake_grant_privileges_to_account_role" "platform_usage" {
 }
 
 
-resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_table" {
-  privileges        = ["ALL"]
-  account_role_name = snowflake_account_role.dcm_developer.name
-  on_schema_object {
-    future {
-      object_type_plural = "TABLES"
-      in_database        = snowflake_database.retail.name
-    }
-  }
-}
+# resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_table" {
+#   privileges        = ["ALL"]
+#   account_role_name = snowflake_account_role.dcm_developer.name
+#   on_schema_object {
+#     future {
+#       object_type_plural = "TABLES"
+#       in_database        = snowflake_database.retail.name
+#     }
+#   }
+# }
 
 
-resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_view" {
-  privileges        = ["ALL"]
+# resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_view" {
+#   privileges        = ["ALL"]
+#   account_role_name = snowflake_account_role.dcm_developer.name
+#   on_schema_object {
+#     future {
+#       object_type_plural = "VIEWS"
+#       in_database        = snowflake_database.retail.name
+#     }
+#   }
+# }
+
+
+resource "snowflake_grant_privileges_to_account_role" "dcm_developer_to_bronze_schema" {
+  all_privileges    = true
   account_role_name = snowflake_account_role.dcm_developer.name
-  on_schema_object {
-    future {
-      object_type_plural = "VIEWS"
-      in_database        = snowflake_database.retail.name
-    }
+
+  on_schema {
+    schema_name = snowflake_schema.retail_bronze.name
   }
 }
