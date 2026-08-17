@@ -1,8 +1,8 @@
 
-define schema RETAL.TEST;
+define schema retail_2.TEST;
 
 
-define VIEW RETAL.TEST.ENVIRONMENT_V
+define VIEW retail_2.TEST.ENVIRONMENT_V
 AS 
 SELECT
     'DEV' AS ENVIRONMENT,
