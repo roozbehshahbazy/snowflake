@@ -14,5 +14,5 @@ targets:
 
   templating:
     configurations:
-      DEV:
+      dev:
         env_prefix: "DEV_"
