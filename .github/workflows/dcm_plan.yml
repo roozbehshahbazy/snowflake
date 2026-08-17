@@ -25,4 +25,5 @@ jobs:
         with:
           target: dev
           project-path: snowflake/my_dcm_project/
-          snowflake-user: ${{ secrets.SNOWFLAKE_USER }}
+          # snowflake-user: ${{ secrets.SNOWFLAKE_USER }}
+          snowflake-user: "ROOZBEH1984"
