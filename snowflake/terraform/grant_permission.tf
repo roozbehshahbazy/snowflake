@@ -20,7 +20,7 @@ resource "snowflake_grant_privileges_to_account_role" "retail_usage" {
 }
 
 # Grant USAGE on PLATFORM database to DCM_DEVELOPER
-resource "snowflake_grant_privileges_to_account_role" "retail_usage" {
+resource "snowflake_grant_privileges_to_account_role" "platform_usage" {
   account_role_name = snowflake_account_role.dcm_developer.name
   privileges        = ["USAGE"]
 
