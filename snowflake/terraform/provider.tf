@@ -8,9 +8,6 @@ provider "snowflake" {
   authenticator              = "WORKLOAD_IDENTITY"
   workload_identity_provider = "OIDC"
 
-  experimental_features_enabled = [
-    "USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY"
-  ]
 }
 
 provider "azurerm" {
