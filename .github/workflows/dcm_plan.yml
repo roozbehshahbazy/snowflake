@@ -26,4 +26,3 @@ jobs:
           target: dev
           project-path: snowflake/my_dcm_project/
           snowflake-user: ${{ secrets.SNOWFLAKE_USER }}
-          snowflake-role: DCM_DEVELOPER
