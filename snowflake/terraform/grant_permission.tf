@@ -14,7 +14,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_table" {
   account_role_name = snowflake_account_role.dcm_developer.name
   on_schema_object {
     future {
-      object_type_plural = ["TABLES"]
+      object_type_plural = "TABLES"
       in_database        = snowflake_database.retail.name
     }
   }
@@ -26,7 +26,7 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_view" {
   account_role_name = snowflake_account_role.dcm_developer.name
   on_schema_object {
     future {
-      object_type_plural = ["VIEWS"]
+      object_type_plural = "VIEWS"
       in_database        = snowflake_database.retail.name
     }
   }
