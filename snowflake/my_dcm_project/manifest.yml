@@ -11,8 +11,7 @@ targets:
     project_owner: DCM_DEVELOPER
 
   
-
-  templating:
-    configurations:
-      dev:
-        env_prefix: "DEV_"
+templating:
+  configurations:
+    dev:
+      env_prefix: "DEV_"
