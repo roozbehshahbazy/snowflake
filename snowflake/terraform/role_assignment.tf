@@ -8,5 +8,5 @@ resource "snowflake_grant_account_role" "dcm_developer_to_roozbeh" {
 
 resource "snowflake_grant_account_role" "dcm_developer_to_git_user" {
   role_name = snowflake_account_role.dcm_developer.name
-  user_name = snowflake_service_user.github_actions_dmc_snowflake.user_name
+  user_name = snowflake_service_user.github_actions_dmc_snowflake.name
 }
