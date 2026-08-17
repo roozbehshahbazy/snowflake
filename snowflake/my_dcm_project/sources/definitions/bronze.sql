@@ -1,8 +1,9 @@
+define database RETAIL;
 
-define schema retail_2.TEST;
+define schema RETAIL.BRONZE;
 
 
-define VIEW retail_2.TEST.ENVIRONMENT_V
+define VIEW RETAIL.BRONZE.ENVIRONMENT_V
 AS 
 SELECT
     'DEV' AS ENVIRONMENT,

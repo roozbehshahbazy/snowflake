@@ -8,17 +8,6 @@ resource "snowflake_grant_privileges_to_account_role" "dcm_developer_project" {
 
 }
 
-# Grant USAGE on RETAIL database to DCM_DEVELOPER
-resource "snowflake_grant_privileges_to_account_role" "retail_usage" {
-  account_role_name = snowflake_account_role.dcm_developer.name
-  privileges        = ["USAGE"]
-
-  on_account_object {
-    object_type = "DATABASE"
-    object_name = snowflake_database.retail.name
-  }
-}
-
 # Grant USAGE on PLATFORM database to DCM_DEVELOPER
 resource "snowflake_grant_privileges_to_account_role" "platform_usage" {
   account_role_name = snowflake_account_role.dcm_developer.name
@@ -31,35 +20,3 @@ resource "snowflake_grant_privileges_to_account_role" "platform_usage" {
 }
 
 
-# resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_table" {
-#   privileges        = ["ALL"]
-#   account_role_name = snowflake_account_role.dcm_developer.name
-#   on_schema_object {
-#     future {
-#       object_type_plural = "TABLES"
-#       in_database        = snowflake_database.retail.name
-#     }
-#   }
-# }
-
-
-# resource "snowflake_grant_privileges_to_account_role" "dcm_to_retail_view" {
-#   privileges        = ["ALL"]
-#   account_role_name = snowflake_account_role.dcm_developer.name
-#   on_schema_object {
-#     future {
-#       object_type_plural = "VIEWS"
-#       in_database        = snowflake_database.retail.name
-#     }
-#   }
-# }
-
-
-resource "snowflake_grant_privileges_to_account_role" "dcm_developer_to_bronze_schema" {
-  all_privileges    = true
-  account_role_name = snowflake_account_role.dcm_developer.name
-
-  on_schema {
-    schema_name = snowflake_schema.retail_bronze.fully_qualified_name
-  }
-}
