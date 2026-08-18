@@ -7,7 +7,7 @@ default_target: dev
 targets:
   dev:
     account_identifier: AOJAKXH-YN03913
-    project_name: PLATFORM.PROJECT.DCM_DEMO
+    project_name: PLATFORM.PROJECT.RETAIL
     project_owner: DCM_DEVELOPER
     templating_config: dev
 
