@@ -20,3 +20,15 @@ resource "snowflake_grant_privileges_to_account_role" "platform_usage" {
 }
 
 
+# Grant CREATE SECRET on the schema
+resource "snowflake_grant_privileges_to_account_role" "dcm_developer_create_secret" {
+  account_role_name = "DCM_DEVELOPER"
+  privileges        = ["CREATE SECRET"]
+
+  on_schema {
+    schema_name = "PLATFORM.SECURITY"
+  }
+}
+
+
+
