@@ -7,12 +7,21 @@ default_target: dev
 targets:
   dev:
     account_identifier: AOJAKXH-YN03913
-    project_name: PLATFORM.PROJECT.RETAIL
+    project_name: PLATFORM.PROJECT.DEV_RETAIL
     project_owner: DCM_DEVELOPER
     templating_config: dev
+
+  stage:
+    account_identifier: AOJAKXH-YN03913
+    project_name: PLATFORM.PROJECT.STG_RETAIL
+    project_owner: DCM_DEVELOPER
+    templating_config: stg
 
   
 templating:
   configurations:
     dev:
       env_prefix: "DEV_"
+
+    stg:
+      env_prefix: "STG_"
