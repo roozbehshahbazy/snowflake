@@ -20,14 +20,14 @@ resource "snowflake_grant_privileges_to_account_role" "platform_usage" {
 }
 
 
-# Grant USAGE on RETAIL_WH
-resource "snowflake_grant_privileges_to_account_role" "retail_wh_usage" {
+# # Grant USAGE on RETAIL_WH
+# resource "snowflake_grant_privileges_to_account_role" "retail_wh_usage" {
 
-  account_role_name = snowflake_account_role.dcm_developer.name
+#   account_role_name = snowflake_account_role.dcm_developer.name
 
-  privileges = ["USAGE"]
-  on_account_object {
-    object_type = "WAREHOUSE"
-    object_name = snowflake_warehouse.retail_warehouse
-  }
-}
+#   privileges = ["USAGE"]
+#   on_account_object {
+#     object_type = "WAREHOUSE"
+#     object_name = snowflake_warehouse.retail_warehouse
+#   }
+# }
