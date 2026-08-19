@@ -28,6 +28,6 @@ resource "snowflake_grant_privileges_to_account_role" "retail_wh_usage" {
   privileges = ["USAGE"]
   on_account_object {
     object_type = "WAREHOUSE"
-    object_name = snowflake_warehouse.retail_warehouse
+    object_name = snowflake_warehouse.retail_warehouse.name
   }
 }
