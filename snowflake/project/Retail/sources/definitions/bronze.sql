@@ -10,3 +10,30 @@ SELECT
     'RETAIL' AS BUSINESS_UNIT,
     'NZ' AS COUNTRY;
 
+define VIEW {{env_prefix}}RETAIL.BRONZE.ENVIRONMENT_V2
+AS 
+SELECT
+    'DEV' AS ENVIRONMENT,
+    'RETAIL' AS BUSINESS_UNIT,
+    'NZ' AS COUNTRY;
+
+
+
+DEFINE TABLE {{env_prefix}}RETAIL.BRONZE.orders_raw (
+    order_id INT,
+    customer_id INT,
+    order_date DATE,
+    amount NUMBER(10,2)
+);
+
+
+DEFINE DYNAMIC TABLE {{env_prefix}}RETAIL.BRONZE.customer_spend
+    TARGET_LAG = '1 minute'  -- Refresh interval (can be minutes, hours, etc.)
+    WAREHOUSE = RETAIL_WH  -- Warehouse used for refresh
+AS
+SELECT
+    customer_id,
+    COUNT(*) AS total_orders,
+    SUM(amount) AS total_spent
+FROM {{env_prefix}}RETAIL.BRONZE.orders_raw 
+GROUP BY customer_id;
