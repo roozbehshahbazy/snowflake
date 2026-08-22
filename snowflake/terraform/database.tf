@@ -4,5 +4,5 @@ resource "snowflake_database" "platform" {
 
 
 resource "snowflake_database" "refinery" {
-  name = "REFINERY"
+  name = "DEV_REFINERY"
 }
