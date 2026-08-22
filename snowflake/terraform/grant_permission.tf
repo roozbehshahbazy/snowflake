@@ -31,3 +31,12 @@ resource "snowflake_grant_privileges_to_account_role" "retail_wh_usage" {
     object_name = snowflake_warehouse.retail_warehouse.name
   }
 }
+
+
+resource "snowflake_grant_privileges_to_account_role" "dcm_to_bronze" {
+  account_role_name = snowflake_account_role.dcm_developer.name
+  all_privileges    = true
+  on_schema {
+    schema_name = snowflake_schema.refinery_bronze_schema.fully_qualified_name
+  }
+}
