@@ -5,6 +5,6 @@ resource "snowflake_schema" "project" {
 
 
 resource "snowflake_schema" "refinery_bronze_schema" {
-  name     = "bronze"
+  name     = "BRONZE"
   database = snowflake_database.refinery.name
 }
