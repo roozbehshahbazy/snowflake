@@ -33,6 +33,16 @@ resource "snowflake_grant_privileges_to_account_role" "retail_wh_usage" {
 }
 
 
+resource "snowflake_grant_privileges_to_account_role" "dcm_usage_on_refinary_db" {
+  privileges        = ["USAGE"]
+  account_role_name = snowflake_account_role.dcm_developer.name
+  on_account_object {
+    object_type = "DATABASE"
+    object_name = snowflake_database.refinery.name
+  }
+}
+
+
 resource "snowflake_grant_privileges_to_account_role" "dcm_to_bronze" {
   account_role_name = snowflake_account_role.dcm_developer.name
   all_privileges    = true
