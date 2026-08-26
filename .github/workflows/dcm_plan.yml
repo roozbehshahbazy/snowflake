@@ -24,5 +24,5 @@ jobs:
       - uses: snowflakedb/snowflake-actions/dcm/plan@v3
         with:
           target: dev
-          project-path: snowflake/my_dcm_project/
+          project-path: snowflake/project/Retail/
           snowflake-user: ${{ secrets.SNOWFLAKE_USER }}
