@@ -16,7 +16,7 @@ jobs:
   dcm-deploy:
     uses: ./.github/workflows/dcm-plan-deploy.yml
     with:
-      project_path: ./snowflake
+      project_path: ./snowflake/project
       environment: test
       target: test
       dcm_mode: deploy
