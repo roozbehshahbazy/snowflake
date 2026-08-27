@@ -8,11 +8,15 @@ on:
       - 'snowflake/**'
       - '.github/workflows/**'
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   dcm-plan:
     uses: ./.github/workflows/dcm-plan-deploy.yml
     with:
-      project_path: ./snowflake
+      project_path: ./snowflake/project/Retail/
       environment: test
       target: test
       dcm_mode: plan
