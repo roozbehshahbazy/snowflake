@@ -1,3 +1,4 @@
+-- Sample Code
 define database {{env_prefix}}RETAIL;
 
 define schema {{env_prefix}}RETAIL.BRONZE;
