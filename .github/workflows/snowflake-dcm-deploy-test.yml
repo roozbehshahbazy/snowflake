@@ -1,0 +1,20 @@
+name: Snowflake DCM Deploy - Test
+
+on:
+  push:
+    branches:
+      - test
+    paths:
+      - 'snowflake/**'
+      - '.github/workflows/**'
+
+jobs:
+  dcm-deploy:
+    uses: ./.github/workflows/dcm-plan-deploy.yml
+    with:
+      project_path: ./snowflake
+      environment: test
+      target: test
+      dcm_mode: deploy
+      allow_object_drop: false
+    secrets: inherit

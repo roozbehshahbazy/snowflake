@@ -11,11 +11,11 @@ targets:
     project_owner: DCM_DEVELOPER
     templating_config: dev
 
-  stage:
+  test:
     account_identifier: AOJAKXH-YN03913
-    project_name: PLATFORM.PROJECT.STG_RETAIL
+    project_name: PLATFORM.PROJECT.TEST_RETAIL
     project_owner: DCM_DEVELOPER
-    templating_config: stg
+    templating_config: tst
 
   
 templating:
@@ -23,5 +23,5 @@ templating:
     dev:
       env_prefix: "DEV_"
 
-    stg:
-      env_prefix: "STG_"
+    tst:
+      env_prefix: "TEST_"
